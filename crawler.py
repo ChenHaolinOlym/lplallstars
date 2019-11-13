@@ -37,8 +37,9 @@ r = requests.get(url, headers=header, params={'proj':'a20191025allstarpc','c':'a
 LiverSdw = r.content.decode('utf-8')
 LiverText = json.loads(LiverSdw.split("var res = ")[1])
 
-with open(f"Liver{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w") as f:
-    pass
+with open(f"Liver{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w", newline="", encoding="utf-8") as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(["Liver", "nums"])
 for i in LiverText['data'].keys():
     with open(f"Liver{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "a+", newline="", encoding="utf-8") as f:
         f_csv = csv.writer(f)
@@ -50,8 +51,9 @@ r = requests.get(url, headers=header, params={'proj':'a20191025allstarpc','c':'a
 NewStarsSdw = r.content.decode('utf-8')
 NewStarsText = json.loads(NewStarsSdw.split("var res = ")[1])
 
-with open(f"NewStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w") as f:
-    pass
+with open(f"NewStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w", newline="", encoding="utf-8") as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(["Player", "nums"])
 for i in NewStarsText['data'].keys():
     with open(f"NewStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "a+", newline="", encoding="utf-8") as f:
         f_csv = csv.writer(f)
@@ -63,8 +65,9 @@ r = requests.get(url, headers=header, params={'proj':'a20191025allstarpc','c':'a
 LeaderSdw = r.content.decode('utf-8')
 LeaderText = json.loads(LeaderSdw.split("var res = ")[1])
 
-with open(f"Leader{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w") as f:
-    pass
+with open(f"Leader{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w", newline="", encoding="utf-8") as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(["Player", "nums"])
 for i in LeaderText['data'].keys():
     if i != '0':
         with open(f"Leader{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "a+", newline="", encoding="utf-8") as f:
@@ -77,8 +80,9 @@ r = requests.get(url, headers=header, params={'proj':'a20191025allstarpc','c':'a
 AllStarsSdw = r.content.decode('utf-8')
 AllStarsText = json.loads(AllStarsSdw.split("var res = ")[1])
 
-with open(f"AllStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w") as f:
-    pass
+with open(f"AllStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "w", newline="", encoding="utf-8") as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(["Player", "nums"])
 for i in AllStarsText['data'].keys():
     with open(f"AllStars{time.strftime('%Y%m%d%H%M',time.localtime(time.time()))}.csv", "a+", newline="", encoding="utf-8") as f:
         f_csv = csv.writer(f)
